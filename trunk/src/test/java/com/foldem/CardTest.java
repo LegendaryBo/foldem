@@ -8,7 +8,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * code_swarm is distributed in the hope that it will be useful,
+ * Foldem is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -27,7 +27,6 @@ public class CardTest {
 	@Test
 	public void testNames() throws Exception {
 		for (Card card : Card.values()) {
-			assertEquals(card.getRank().name() + "_" + card.getSuit().name(), card.name());
 			assertEquals(card.getRank().toString() + card.getSuit().toString(), card.toString());
 		}
 	}
