@@ -20,8 +20,25 @@ package com.foldem.eval;
 
 import com.foldem.Card;
 
+/**
+ * Estimates the strength of the hand.
+ * 
+ * @param <E> estimation result class
+ *
+ * @author Robert Strack
+ */
 public interface HandEstimator<E> {
 
+	/**
+	 * Estimates hand strength.
+	 * 
+	 * @param cards
+	 *            exactly 2, 5, 6 or 7 unique cards (first 2 cards must be
+	 *            player's hand)
+	 * @return estimation result
+	 * @throws EstimationFailedException
+	 *             if hand strength estimation was impossible for some reason
+	 */
 	E estimate(Card... cards) throws EstimationFailedException;
 
 }

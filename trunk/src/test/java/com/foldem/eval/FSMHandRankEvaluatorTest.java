@@ -31,8 +31,9 @@ import org.junit.Test;
 import com.foldem.Card;
 
 /**
- * @author Robert Strack
+ * Test for Finite State Machine hand rank evaluator.
  * 
+ * @author Robert Strack
  */
 public class FSMHandRankEvaluatorTest {
 

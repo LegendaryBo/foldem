@@ -20,8 +20,23 @@ package com.foldem.eval;
 
 import com.foldem.Card;
 
+/**
+ * Evaluator of the Texas Hold'em poker hands. Evalutators need not to be thread
+ * safe.
+ * 
+ * @author Robert Strack
+ */
 public interface HandRankEvaluator {
 
+	/**
+	 * Evaluates hand rank. Caller must pass exactly 7 unique cards.
+	 * 
+	 * @param cards
+	 *            exactly 7 unique cards
+	 * @return hand rank for particular hand
+	 * @throws EvaluationFailedException
+	 *             if hand evaluation was impossible for some reason
+	 */
 	HandRank evaluate(Card... cards) throws EvaluationFailedException;
 
 }
