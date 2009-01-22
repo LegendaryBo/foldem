@@ -20,13 +20,24 @@ package com.foldem.eval;
 
 import java.io.Serializable;
 
+/**
+ * Representation of the poker hand strength.
+ *
+ * @author Robert Strack
+ */
 public class HandRank implements Comparable<HandRank>, Serializable {
 
 	private static final long serialVersionUID = 6897360347770643227L;
 
+	/**
+	 * Numbers of distinct hand types (high card, pair, two pair, etc.).
+	 */
 	private static final int[] TYPE_COUNT = { 1277, 2860, 858, 858, 10,
 		1277, 156, 156, 10 };
 
+	/**
+	 * Id of the rank (the higher the id is the stronger is the rank).
+	 */
 	private final int id;
 
 	public HandRank(int handRankId) {
@@ -34,6 +45,11 @@ public class HandRank implements Comparable<HandRank>, Serializable {
 		this.id = handRankId;
 	}
 
+	/**
+	 * Compares the strength of the hand (the values of the ids).
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	@Override
 	public int compareTo(HandRank rank) {
 		return id < rank.id ? -1 : (id == rank.id ? 0 : 1);
@@ -53,6 +69,11 @@ public class HandRank implements Comparable<HandRank>, Serializable {
 		return id;
 	}
 
+	/**
+	 * Calculates the hand type.
+	 * 
+	 * @return hand type
+	 */
 	public HandType getHandType() {
 		for (int i = 0, total = 0; i < TYPE_COUNT.length; i++) {
 			if ((total += TYPE_COUNT[i]) > id) {

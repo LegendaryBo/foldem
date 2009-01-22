@@ -25,7 +25,7 @@ import org.junit.Test;
 public class CardTest {
 
 	@Test
-	public void testNames() throws Exception {
+	public void testToString() throws Exception {
 		for (Card card : Card.values()) {
 			assertEquals(card.getRank().toString() + card.getSuit().toString(), card.toString());
 		}

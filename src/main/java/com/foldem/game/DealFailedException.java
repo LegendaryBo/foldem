@@ -20,6 +20,11 @@ package com.foldem.game;
 
 import com.foldem.PokerException;
 
+/**
+ * Exception thrown when dealing is not possible.
+ * 
+ * @author Robert Strack
+ */
 public class DealFailedException extends PokerException {
 
 	private static final long serialVersionUID = 5145291278041896890L;

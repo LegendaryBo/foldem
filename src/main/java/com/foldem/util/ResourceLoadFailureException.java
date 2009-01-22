@@ -18,6 +18,11 @@
  */
 package com.foldem.util;
 
+/**
+ * Exception thrown when resource loading is impossible.
+ * 
+ * @author Robert Strack
+ */
 public class ResourceLoadFailureException extends RuntimeException {
 
 	private static final long serialVersionUID = -500993246962687812L;

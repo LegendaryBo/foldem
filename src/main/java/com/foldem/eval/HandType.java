@@ -18,6 +18,11 @@
  */
 package com.foldem.eval;
 
+/**
+ * Enumeration of all possilbe hand types.
+ *
+ * @author Robert Strack
+ */
 public enum HandType {
 
 	HIGH_CARD,

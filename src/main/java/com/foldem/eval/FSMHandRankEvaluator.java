@@ -21,17 +21,47 @@ package com.foldem.eval;
 import com.foldem.Card;
 import com.foldem.util.ResourceReader;
 
+/**
+ * Hand rank evaluator implementation. Uses Finite State Machines for
+ * evaluation.
+ * 
+ * @author Robert Strack
+ */
 public class FSMHandRankEvaluator implements HandRankEvaluator {
 
+	/**
+	 * Path to the transition table used for evaluation "rank" hand types.
+	 */
 	public static final String RANKS_TRANSITIONS_RESOURCE_NAME = "/rank.states.dat";
+
+	/**
+	 * Path to the transition table used for evaluation "suit hand types"
+	 * (flushes).
+	 */
 	public static final String SUIT_TRANSITIONS_RESOURCE_NAME = "/suit.states.dat";
+
+	/**
+	 * Path to the table holding strength of the "suit hand types" (flushes).
+	 */
 	public static final String SUIT_VALUES_RESOURCE_NAME = "/suit.trans.dat";
 
+	/**
+	 * Transition table used for evaluation "rank" hand types.
+	 */
 	private static final short[][] RANKS_TRANSITIONS;
+
+	/**
+	 * Transition table used for evaluation "suit hand types" (flushes).
+	 */
 	private static final short[][] SUIT_TRANSITIONS;
+
+	/**
+	 * Table holding strength of the "suit hand types" (flushes).
+	 */
 	private static final short[][] SUIT_VALUES;
 
 	static {
+		// initialization
 		RANKS_TRANSITIONS = ResourceReader.loadResource(RANKS_TRANSITIONS_RESOURCE_NAME);
 		SUIT_TRANSITIONS = ResourceReader.loadResource(SUIT_TRANSITIONS_RESOURCE_NAME);
 		SUIT_VALUES = ResourceReader.loadResource(SUIT_VALUES_RESOURCE_NAME);

@@ -23,6 +23,11 @@ import java.util.Random;
 
 import com.foldem.Card;
 
+/**
+ * The card deck contains base "card operations" (ie. card dealing).
+ * 
+ * @author Robert Strack
+ */
 public class Deck {
 
 	public static final int CARD_NUMBER = Card.values().length;
@@ -33,6 +38,15 @@ public class Deck {
 		reset();
 	}
 
+	/**
+	 * Deals cards.
+	 * 
+	 * @param cardNumber
+	 *            number cards to deal
+	 * @return cards (array of length <code>cardNumber</code>
+	 * @throws DealFailedException
+	 *             if dealing is impossible (ie. deck is empty)
+	 */
 	public Card[] deal(int cardNumber) throws DealFailedException {
 		if (cardNumber + cards.size() > CARD_NUMBER) {
 			throw new DealFailedException("the deck is too small");
@@ -51,6 +65,9 @@ public class Deck {
 		return deal;
 	}
 
+	/**
+	 * Resets card deck (restores initial state).
+	 */
 	public void reset() {
 		cards.clear();
 	}

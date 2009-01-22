@@ -22,10 +22,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 
+/**
+ * Utility class with methods appropriate for resource reading.
+ *
+ * @author Robert Strack
+ */
 public class ResourceReader {
 
+	/**
+	 * Reads resources.
+	 * 
+	 * @param <T>
+	 *            return type
+	 * @param name
+	 *            resource URI
+	 * @return loaded resource
+	 * @throws ResourceLoadFailureException
+	 *             if resources cannot be loaded
+	 */
 	@SuppressWarnings("unchecked")
-	public static <T extends Object> T loadResource(String name) {
+	public static <T extends Object> T loadResource(String name) throws ResourceLoadFailureException {
 		try {
 			InputStream resourceStream = ResourceReader.class.getResourceAsStream(name);
 			if (resourceStream != null) {
