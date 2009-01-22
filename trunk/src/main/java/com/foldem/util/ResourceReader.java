@@ -1,0 +1,46 @@
+/**
+ * Copyright (C) 2009 Robert Strack
+ *
+ * This file is part of Foldem.
+ *
+ * Foldem is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * code_swarm is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Foldem.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.foldem.util;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+
+public class ResourceReader {
+
+	@SuppressWarnings("unchecked")
+	public static <T extends Object> T loadResource(String name) {
+		try {
+			InputStream resourceStream = ResourceReader.class.getResourceAsStream(name);
+			if (resourceStream != null) {
+				ObjectInputStream objectStream = new ObjectInputStream(resourceStream);
+				return (T) objectStream.readObject();
+			} else {
+				throw new ResourceLoadFailureException("resource " + name + " does not exist");
+			}
+		} catch (IOException e) {
+			throw new ResourceLoadFailureException("cannot read resource " + name, e);
+		} catch (ClassNotFoundException e) {
+			throw new ResourceLoadFailureException("unknown class for resource " + name, e);
+		} catch (Exception e) {
+			throw new ResourceLoadFailureException("cannot load resource " + name, e);
+		}
+	}
+
+}
