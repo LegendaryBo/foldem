@@ -18,14 +18,14 @@
  */
 package com.foldem.eval;
 
-import com.foldem.PokerException;
+import com.foldem.FoldemException;
 
 /**
  * Exception thrown when hand rank strength estimation is not possible.
  * 
  * @author Robert Strack
  */
-public class EstimationFailedException extends PokerException {
+public class EstimationFailedException extends FoldemException {
 
 	private static final long serialVersionUID = 4628677850069722991L;
 
