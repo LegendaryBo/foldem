@@ -18,8 +18,11 @@
  */
 package com.foldem.game;
 
+import java.util.Collection;
 import java.util.EnumSet;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 import com.foldem.Card;
 
@@ -28,11 +31,11 @@ import com.foldem.Card;
  * 
  * @author Robert Strack
  */
-public class Deck {
+public class Deck implements Set<Card> {
 
 	public static final int CARD_NUMBER = Card.values().length;
 
-	private final EnumSet<Card> cards = EnumSet.noneOf(Card.class);
+	private final EnumSet<Card> cards = EnumSet.allOf(Card.class);
 
 	{
 		reset();
@@ -48,7 +51,7 @@ public class Deck {
 	 *             if dealing is impossible (ie. deck is empty)
 	 */
 	public Card[] deal(int cardNumber) throws DealFailedException {
-		if (cardNumber + cards.size() > CARD_NUMBER) {
+		if (cardNumber > cards.size()) {
 			throw new DealFailedException("the deck is too small");
 		}
 
@@ -58,8 +61,8 @@ public class Deck {
 			Card card = null;
 			do {
 				card = Card.values()[random.nextInt(CARD_NUMBER)];
-			} while (cards.contains(card));
-			cards.add(card);
+			} while (!cards.contains(card));
+			cards.remove(card);
 			deal[i] = card;
 		}
 		return deal;
@@ -69,7 +72,72 @@ public class Deck {
 	 * Resets card deck (restores initial state).
 	 */
 	public void reset() {
+		cards.addAll(EnumSet.allOf(Card.class));
+	}
+
+	@Override
+	public boolean add(Card e) {
+		return cards.add(e);
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends Card> c) {
+		return cards.addAll(c);
+	}
+
+	@Override
+	public void clear() {
 		cards.clear();
+	}
+
+	@Override
+	public boolean contains(Object o) {
+		return cards.contains(o);
+	}
+
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		return cards.containsAll(c);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return cards.isEmpty();
+	}
+
+	@Override
+	public Iterator<Card> iterator() {
+		return cards.iterator();
+	}
+
+	@Override
+	public boolean remove(Object o) {
+		return cards.remove(o);
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		return cards.removeAll(c);
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		return cards.removeAll(c);
+	}
+
+	@Override
+	public int size() {
+		return cards.size();
+	}
+
+	@Override
+	public Object[] toArray() {
+		return cards.toArray();
+	}
+
+	@Override
+	public <T> T[] toArray(T[] a) {
+		return cards.toArray(a);
 	}
 
 }

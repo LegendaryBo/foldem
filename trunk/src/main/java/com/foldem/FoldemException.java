@@ -23,23 +23,23 @@ package com.foldem;
  *
  * @author Robert Strack
  */
-public abstract class PokerException extends RuntimeException {
+public abstract class FoldemException extends RuntimeException {
 
 	private static final long serialVersionUID = -4234742188011350882L;
 
-	public PokerException() {
+	public FoldemException() {
 		super();
 	}
 
-	public PokerException(String message, Throwable cause) {
+	public FoldemException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public PokerException(String message) {
+	public FoldemException(String message) {
 		super(message);
 	}
 
-	public PokerException(Throwable cause) {
+	public FoldemException(Throwable cause) {
 		super(cause);
 	}
 
