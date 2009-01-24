@@ -27,15 +27,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-/**
- * @author Robert Strack
- *
- */
 public class ResourceReaderTest {
 
-	/**
-	 * Test method for {@link com.foldem.util.ResourceReader#loadResource(java.lang.String)}.
-	 */
 	@Test
 	public void testLoadResource() {
 		short[][] resource = null;
@@ -65,9 +58,6 @@ public class ResourceReaderTest {
 		}
 	}
 
-	/**
-	 * Test method for {@link com.foldem.util.ResourceReader#loadResource(java.lang.String)}.
-	 */
 	@Test
 	public void testLoadResourceFailure() {
 		try {
