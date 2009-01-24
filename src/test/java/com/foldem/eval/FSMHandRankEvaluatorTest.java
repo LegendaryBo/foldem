@@ -50,10 +50,6 @@ public class FSMHandRankEvaluatorTest {
 		}
 	}
 
-	/**
-	 * Test method for
-	 * {@link com.foldem.eval.FSMHandRankEvaluator#evaluate(com.foldem.Card[])}.
-	 */
 	@Test
 	public void testRankTypes() {
 		HandRankEvaluator evaluator = new FSMHandRankEvaluator();
