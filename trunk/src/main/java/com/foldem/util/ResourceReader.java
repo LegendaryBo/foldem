@@ -27,7 +27,7 @@ import java.io.ObjectInputStream;
  *
  * @author Robert Strack
  */
-public class ResourceReader {
+public final class ResourceReader {
 
 	/**
 	 * The class is a utility class (non-instantiable).

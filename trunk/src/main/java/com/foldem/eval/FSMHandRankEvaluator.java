@@ -68,7 +68,7 @@ public class FSMHandRankEvaluator implements HandRankEvaluator {
 	}
 
 	@Override
-	public HandRank evaluate(Card... cards) {
+	public final HandRank evaluate(Card... cards) {
 		int rankState = 0;
 		int[] suitValue = new int[4];
 		int[] suitState = new int[4];

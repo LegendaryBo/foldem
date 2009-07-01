@@ -50,7 +50,7 @@ public class Deck implements Set<Card> {
 	 * @throws DealFailedException
 	 *             if dealing is impossible (ie. deck is empty)
 	 */
-	public Card[] deal(int cardNumber) throws DealFailedException {
+	public final Card[] deal(int cardNumber) throws DealFailedException {
 		if (cardNumber > cards.size()) {
 			throw new DealFailedException("the deck is too small");
 		}
