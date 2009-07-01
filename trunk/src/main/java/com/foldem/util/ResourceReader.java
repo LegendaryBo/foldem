@@ -30,6 +30,12 @@ import java.io.ObjectInputStream;
 public class ResourceReader {
 
 	/**
+	 * The class is a utility class (non-instantiable).
+	 */
+	private ResourceReader() {
+	}
+	
+	/**
 	 * Reads resources.
 	 * 
 	 * @param <T>

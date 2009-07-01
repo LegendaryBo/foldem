@@ -51,21 +51,21 @@ public class HandRank implements Comparable<HandRank>, Serializable {
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
-	public int compareTo(HandRank rank) {
+	public final int compareTo(HandRank rank) {
 		return id < rank.id ? -1 : (id == rank.id ? 0 : 1);
 	}
 
 	@Override
-	public int hashCode() {
+	public final int hashCode() {
 		return id;
 	}
 
 	@Override
-	public boolean equals(Object object) {
+	public final boolean equals(Object object) {
 		return (object instanceof HandRank) && (id == ((HandRank) object).id);
 	}
 
-	public int getId() {
+	public final int getId() {
 		return id;
 	}
 
@@ -74,9 +74,10 @@ public class HandRank implements Comparable<HandRank>, Serializable {
 	 * 
 	 * @return hand type
 	 */
-	public HandType getHandType() {
+	public final HandType getHandType() {
 		for (int i = 0, total = 0; i < TYPE_COUNT.length; i++) {
-			if ((total += TYPE_COUNT[i]) > id) {
+			total += TYPE_COUNT[i];
+			if (total > id) {
 				return HandType.values()[i];
 			}
 		}
