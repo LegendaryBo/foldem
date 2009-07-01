@@ -71,72 +71,72 @@ public class Deck implements Set<Card> {
 	/**
 	 * Resets card deck (restores initial state).
 	 */
-	public void reset() {
+	public final void reset() {
 		cards.addAll(EnumSet.allOf(Card.class));
 	}
 
 	@Override
-	public boolean add(Card e) {
+	public final boolean add(Card e) {
 		return cards.add(e);
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends Card> c) {
+	public final boolean addAll(Collection<? extends Card> c) {
 		return cards.addAll(c);
 	}
 
 	@Override
-	public void clear() {
+	public final void clear() {
 		cards.clear();
 	}
 
 	@Override
-	public boolean contains(Object o) {
+	public final boolean contains(Object o) {
 		return cards.contains(o);
 	}
 
 	@Override
-	public boolean containsAll(Collection<?> c) {
+	public final boolean containsAll(Collection<?> c) {
 		return cards.containsAll(c);
 	}
 
 	@Override
-	public boolean isEmpty() {
+	public final boolean isEmpty() {
 		return cards.isEmpty();
 	}
 
 	@Override
-	public Iterator<Card> iterator() {
+	public final Iterator<Card> iterator() {
 		return cards.iterator();
 	}
 
 	@Override
-	public boolean remove(Object o) {
+	public final boolean remove(Object o) {
 		return cards.remove(o);
 	}
 
 	@Override
-	public boolean removeAll(Collection<?> c) {
+	public final boolean removeAll(Collection<?> c) {
 		return cards.removeAll(c);
 	}
 
 	@Override
-	public boolean retainAll(Collection<?> c) {
+	public final boolean retainAll(Collection<?> c) {
 		return cards.removeAll(c);
 	}
 
 	@Override
-	public int size() {
+	public final int size() {
 		return cards.size();
 	}
 
 	@Override
-	public Object[] toArray() {
+	public final Object[] toArray() {
 		return cards.toArray();
 	}
 
 	@Override
-	public <T> T[] toArray(T[] a) {
+	public final <T> T[] toArray(T[] a) {
 		return cards.toArray(a);
 	}
 
